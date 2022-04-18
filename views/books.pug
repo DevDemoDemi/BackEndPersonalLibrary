@@ -1,0 +1,18 @@
+html
+    head
+        title Personal Library
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='/public/Style/style.css')
+    body#style
+        img#bookImg(src='/public/Images/pexels-olenka-sergienko-3646105.jpg')
+        div#books
+            h2 #{message} 
+
+            each title in data
+                ul #{title.title} 
+                    li id: #{title._id}
+                    li comments: #{title.comments.length}
+    
+            a.click#bookHome(href='/') Home

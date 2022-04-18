@@ -1,0 +1,70 @@
+html
+  head
+    title Personal Library
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/public/Style/bootstrap.css')
+    link(rel='stylesheet', href='/public/Style/style.css')
+  body#style
+    div#top
+    h1#head My Personal Library
+    div.boxes#add
+      h2.headers Add Book
+      form(action='/api/books', method='post')
+        div
+          label Title:
+          br
+          input(type='text', name='booktitle')
+        div
+          input.btn.btn-primary(type='submit', value='Add Book')
+    div.boxes#find
+      h2.headers Find Book
+      form(action='/api/books/:id', method='get')
+        div
+          label ID #:
+          input(type='text', name='bookid')
+        div
+          input.btn.btn-primary(type='submit', value='Find Book')
+    div.boxes#comment
+      h2.headers Add Comment
+      form(action='/api/books/id', method='post')
+        div
+          label ID #:
+          input(type='text', name='commentid')
+        div
+          label Comment:
+          input(type='text', name='comment')
+        div
+          input.btn.btn-primary(type='submit', value='Add Comment')
+    div.boxes#delete
+      h2.headers Delete Book
+      form(action='/api/books/:delete', method='post')
+        div
+          label ID #:
+          input(type='text', name='deleteid')
+        div
+          input.btn.btn-primary(type='submit', value='Delete Book')
+    div#links
+      a#viewLink.click(href='/api/books') View all books
+      a.click(href='/delete') Delete all books
+
+
+    if show
+    div#show
+      h3 #{message}
+      h4 #{title}
+      p #{id}
+      p #{comments}
+
+      //- form(action='/api/books/id', method='post')
+      //-   div
+      //-     label Add Comment:
+      //-     input(type='text', name='comment')
+      //-   div
+      //-     input(type='submit', value='Add Comment')
+    //- if showAdd
+    //- div
+    //-   h3 #{message}
+    //-   h4 #{title}
+    //-   p #{id}
